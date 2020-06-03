@@ -58,7 +58,6 @@ public class LinkedList<T> {
             return  pointerOne.getData();
         }
     }
-
     static class Node<T> {
 
         T data;
