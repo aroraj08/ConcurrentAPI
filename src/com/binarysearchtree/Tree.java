@@ -46,4 +46,24 @@ public class Tree {
         }
         root.traversePostOrder();
     }
+
+    public void levelOrderTraversal(boolean useRecursion) {
+
+        if (useRecursion) {
+            root.levelOrderTraversalRecursive();
+        } else {
+            root.levelOrderTraversalUsingQueue();
+        }
+    }
+
+    public void zigZagTraversal() {
+        root.zigZagTraversalRecursive();
+    }
+    public int height() {
+
+        if (root == null) {
+            return 0;
+        }
+        return root.height();
+    }
 }

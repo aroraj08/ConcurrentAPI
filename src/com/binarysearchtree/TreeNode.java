@@ -1,5 +1,7 @@
 package com.binarysearchtree;
 
+import java.util.LinkedList;
+
 public class TreeNode {
 
     private int data;
@@ -91,6 +93,79 @@ public class TreeNode {
          }
         System.out.print(" " + data);
     }
+
+    public void levelOrderTraversalUsingQueue() {
+
+        LinkedList<TreeNode> linkedList = new LinkedList<>();
+        linkedList.add(this);
+
+        while (linkedList.size() != 0) {
+            TreeNode node = linkedList.removeFirst();
+            System.out.print(node.getData() + " ");
+            if(node.leftChild != null ) {
+                linkedList.add(node.leftChild);
+            }
+            if (node.rightChild != null) {
+                linkedList.add(node.rightChild);
+            }
+        }
+    }
+
+    public int height() {
+
+        if (this.leftChild == null && this.rightChild == null) {
+            return 1;
+        }
+
+        int heightLeftSubtree = this.leftChild != null ? this.leftChild.height() : 0;
+        int heightRightSubtree = this.rightChild != null ? this.rightChild.height() : 0;
+
+       return heightLeftSubtree > heightRightSubtree ? heightLeftSubtree + 1 : heightRightSubtree + 1;
+
+    }
+
+    public void levelOrderTraversalRecursive() {
+            int heightOfTree = this.height();
+            for (int i=0; i< heightOfTree; i++) {
+                printLevelOrderData(this, i, true);
+            }
+    }
+
+    public void zigZagTraversalRecursive() {
+        int heightOfTree = this.height();
+        boolean isLeftToRight = true;
+
+        for (int i=0; i< heightOfTree; i++) {
+            printLevelOrderData(this, i, isLeftToRight);
+            isLeftToRight = !isLeftToRight;
+        }
+    }
+
+    private void printLevelOrderData(TreeNode node, int level, boolean isLeftToRight) {
+
+        if (level == 0) {
+            System.out.print(node.data + " ");
+            return;
+        }
+
+        if (isLeftToRight) {
+            if (node.leftChild != null) {
+                printLevelOrderData(node.leftChild, level-1, isLeftToRight);
+            }
+            if (node.rightChild != null) {
+                printLevelOrderData(node.rightChild, level-1, isLeftToRight);
+            }
+        } else {
+            if (node.rightChild != null) {
+                printLevelOrderData(node.rightChild, level-1, isLeftToRight);
+            }
+            if (node.leftChild != null) {
+                printLevelOrderData(node.leftChild, level-1, isLeftToRight);
+            }
+        }
+
+    }
+
 
     public int getData() {
         return data;
