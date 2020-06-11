@@ -11,10 +11,18 @@ public class Main {
         linkedList.add(4);
         linkedList.add(5);
 
+        System.out.println(linkedList.getSize());
+
+        linkedList.printLinkedList();
+        System.out.println("----");
+
+        linkedList.reverseLinkedList();
+
+        /*
         // search for mid element
 
         linkedList.remove();
-        System.out.println(linkedList.getSize());
+
         linkedList.remove();
         linkedList.remove();
         System.out.println(linkedList.getSize());
@@ -25,6 +33,6 @@ public class Main {
         linkedList.add(6);
 
         Integer val = linkedList.getMidElement();
-        System.out.println(val);
+        System.out.println(val);*/
     }
 }

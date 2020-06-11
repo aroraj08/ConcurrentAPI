@@ -1,6 +1,7 @@
 package com.binarysearchtree;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class TreeNode {
 
@@ -166,6 +167,22 @@ public class TreeNode {
 
     }
 
+    public void getToNode(int searchValue, List<Integer> path) {
+
+        if (this.data == searchValue) {
+            return;
+        }
+        if (searchValue < this.data && this.leftChild != null) {
+            path.add(this.data);
+            this.leftChild.getToNode(searchValue, path);
+        } else if (searchValue > this.data && this.rightChild != null){
+            path.add(this.data);
+            this.rightChild.getToNode(searchValue, path);
+        }
+    }
+
+    public void leftViewOfTree(int level, boolean isLevelParsed) {
+    }
 
     public int getData() {
         return data;

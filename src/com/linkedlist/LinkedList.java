@@ -83,4 +83,31 @@ public class LinkedList<T> {
             this.next = next;
         }
     }
+
+    public void printLinkedList() {
+
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.getData() + " -> ");
+            current = current.next;
+        }
+    }
+
+    public void reverseLinkedList() {
+
+        Node<T> current = head;
+        Node<T> temp = null;
+        Node<T> prev = null;
+
+        while (current != null) {
+
+            temp = current.getNext();
+           current.next = prev;
+           prev = current;
+           current = temp;
+        }
+
+        head = prev;
+        this.printLinkedList();
+    }
 }

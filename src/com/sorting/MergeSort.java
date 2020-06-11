@@ -7,9 +7,9 @@ public class MergeSort {
 
     public static void main(String[] args) {
 
-        int[] array = {20, 35, -15, 7, 55, 1, -22};
+        //int[] array = {20, 35, -15, 7, 55, 1, -22};
 
-        //int[] array = {1, 15, -22};
+        int[] array = {1, 15, -22};
 
         for (int a : array) {
             System.out.print(a + " ");

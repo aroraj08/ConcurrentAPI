@@ -1,5 +1,8 @@
 package com.binarysearchtree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tree {
 
     private TreeNode root;
@@ -65,5 +68,23 @@ public class Tree {
             return 0;
         }
         return root.height();
+    }
+
+    public Integer[] getToNodeWithValue(int searchValue) {
+
+        // start from root and reach the node with value as incoming value
+            if (root.getData() == searchValue) {
+                return new Integer[]{searchValue};
+            } else {
+                List<Integer> path = new ArrayList<>();
+                root.getToNode(searchValue, path);
+                return path.toArray(new Integer[path.size()]);
+            }
+    }
+
+    public void leftViewTree() {
+        for (int i=0; i<this.height(); i++) {
+            root.leftViewOfTree(i, false);
+        }
     }
 }
