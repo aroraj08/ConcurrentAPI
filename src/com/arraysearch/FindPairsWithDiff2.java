@@ -7,12 +7,13 @@ public class FindPairsWithDiff2 {
 
     public static void main(String[] args) {
 
-        int[] array = {1, 7, 3, 2, 9, 5, 10, 4, 3};
-        findPairsWithDiff(array, 11);
-        findPairsWithDiff(array, 4);
+        //int[] array = {1, 7, 3, 2, 9, 5, 10, 4, 3};
+        int[] array = {1, 2, 2, 3, 3};
+        //findPairsWithDiff(array, 11);
+        //findPairsWithDiff(array, 4);
         findPairsWithDiff(array, 0);
-        findPairsWithDiff(array, -1);
-        findPairsWithDiff(array, 1);
+        //findPairsWithDiff(array, -1);
+        //findPairsWithDiff(array, 1);
     }
 
     private static void findPairsWithDiff(int input[], int diff) {

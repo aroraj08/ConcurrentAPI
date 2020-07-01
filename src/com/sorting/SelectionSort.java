@@ -4,7 +4,7 @@ package com.sorting;
  * Traverse the array, find largest element and replace it with last unsorted index.
  * last_unsorted_index = last index until which array is sorted.
  * In place algorithm with O(n power 2) time complexity.
- * Does not require as much sorting as bubble sort. Better than Bubble sort
+ * Does not require as much sorting as bubble sort. Better than Bubble sort.
  *
  */
 public class SelectionSort {

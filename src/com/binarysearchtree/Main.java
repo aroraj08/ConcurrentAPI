@@ -52,6 +52,9 @@ public class Main {
 
         System.out.println();
         tree.zigZagTraversal();
+
+        System.out.println("zig zag traversal using two stacks");
+        tree.zigZagTraversalUsingStack();
     }
 
 }

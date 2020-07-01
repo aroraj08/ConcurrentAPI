@@ -12,9 +12,10 @@ public class Main {
         List<Participant> participantList = new ArrayList<>(50);
 
         CountDownLatch countDownLatch = new CountDownLatch(50);
-        IntStream.iterate(1, n -> n+1)
-                .limit(50)
-                .forEach(n -> participantList.add(new Participant(countDownLatch)));
+
+        for (int i=0; i<50; i++) {
+            participantList.add(new Participant(countDownLatch, i));
+        }
 
         VideoConference videoConference = new VideoConference(participantList, countDownLatch);
         Thread videoConThread = new Thread(videoConference);
@@ -24,5 +25,6 @@ public class Main {
             new Thread(p).start();
         });
 
+        System.out.println("EOP");
     }
 }

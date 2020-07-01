@@ -2,6 +2,7 @@ package com.binarysearchtree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Tree {
 
@@ -58,7 +59,36 @@ public class Tree {
             root.levelOrderTraversalUsingQueue();
         }
     }
-
+    public void zigZagTraversalUsingStack(){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<TreeNode> s2 = new Stack<>();
+        s1.push(root);
+        while (!s1.isEmpty() || !s2.isEmpty()){
+            while(!s1.isEmpty()){
+                TreeNode node = s1.pop();
+                System.out.print(node.getData()+" ");
+                if(node.getRightChild()!=null){
+                    s2.push(node.getRightChild());
+                }
+                if(node.getLeftChild()!=null){
+                    s2.push(node.getLeftChild());
+                }
+            }
+            while(!s2.isEmpty()){
+                TreeNode node = s2.pop();
+                System.out.print(node.getData()+" ");
+                if(node.getLeftChild()!=null){
+                    s1.push(node.getLeftChild());
+                }
+                if(node.getRightChild()!=null){
+                    s1.push(node.getRightChild());
+                }
+            }
+        }
+    }
     public void zigZagTraversal() {
         root.zigZagTraversalRecursive();
     }

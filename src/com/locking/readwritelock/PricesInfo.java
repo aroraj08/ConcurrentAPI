@@ -34,7 +34,7 @@ public class PricesInfo {
     public void setPrices(double price1, double price2) {
 
         this.lock.writeLock().lock();
-        System.out.printf("%s: PricesInfo: Write Lock Adquired.\n",
+        System.out.printf("%s: PricesInfo: Write Lock Acquired.\n",
                 new Date());
         try {
             TimeUnit.SECONDS.sleep(10);
